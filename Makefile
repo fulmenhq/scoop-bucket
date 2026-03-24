@@ -4,7 +4,7 @@ APP ?= goneat
 VERSION ?=
 SOURCE ?= --github
 
-.PHONY: update update-goneat release
+.PHONY: update update-goneat update-dimlox release
 
 update:
 	@if [[ -z "$(VERSION)" ]]; then \
@@ -21,6 +21,14 @@ update-goneat:
 		exit 1; \
 	fi
 	@./scripts/update-manifest.sh goneat "$(VERSION)" "$(SOURCE)"
+
+update-dimlox:
+	@if [[ -z "$(VERSION)" ]]; then \
+		echo "ERROR: VERSION is required"; \
+		echo "Usage: make update-dimlox VERSION=0.1.0 [SOURCE=--github|--local]"; \
+		exit 1; \
+	fi
+	@./scripts/update-manifest.sh dimlox "$(VERSION)" "$(SOURCE)"
 
 release:
 	@if [[ -z "$(VERSION)" ]]; then \

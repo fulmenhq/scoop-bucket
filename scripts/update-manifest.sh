@@ -41,7 +41,7 @@ if [[ ! -f "$MANIFEST_PATH" ]]; then
 	exit 1
 fi
 
-require_cmd jq
+require_cmd python3
 if [[ "$SOURCE" == "--github" ]]; then
 	require_cmd gh
 fi
@@ -65,27 +65,47 @@ else
 		--clobber
 fi
 
-TARGET_ARCHIVE="${APP_NAME}_v${VERSION}_windows_amd64.zip"
-WIN_HASH="$(awk -v target="$TARGET_ARCHIVE" '$2 == target {print $1}' "$TEMP_SUMS")"
+python3 - "$MANIFEST_PATH" "$TEMP_SUMS" "$TEMP_MANIFEST" "$APP_NAME" "$VERSION" <<'PY'
+import json
+import sys
+from pathlib import Path
 
-if [[ -z "$WIN_HASH" ]]; then
-	echo "ERROR: could not find ${TARGET_ARCHIVE} hash in SHA256SUMS" >&2
-	exit 1
-fi
+manifest_path = Path(sys.argv[1])
+sums_path = Path(sys.argv[2])
+temp_manifest_path = Path(sys.argv[3])
+app_name = sys.argv[4]
+version = sys.argv[5]
 
-DOWNLOAD_URL="https://github.com/fulmenhq/${APP_NAME}/releases/download/v${VERSION}/${TARGET_ARCHIVE}"
+manifest = json.loads(manifest_path.read_text())
+hashes = {}
+for line in sums_path.read_text().splitlines():
+    parts = line.split()
+    if len(parts) >= 2:
+        hashes[parts[1]] = parts[0]
 
-jq \
-	--arg version "$VERSION" \
-	--arg url "$DOWNLOAD_URL" \
-	--arg hash "$WIN_HASH" \
-	'.version = $version
-	| .architecture."64bit".url = $url
-	| .architecture."64bit".hash = $hash' \
-	"$MANIFEST_PATH" >"$TEMP_MANIFEST"
+manifest["version"] = version
+updated = []
+
+architectures = manifest.get("architecture", {})
+autoupdate_arches = manifest.get("autoupdate", {}).get("architecture", {})
+
+for arch, arch_manifest in architectures.items():
+    template = autoupdate_arches.get(arch, {}).get("url")
+    if not template:
+        continue
+    url = template.replace("$version", version)
+    asset_name = url.rsplit("/", 1)[-1]
+    if asset_name not in hashes:
+        raise SystemExit(f"ERROR: could not find {asset_name} hash in SHA256SUMS")
+    arch_manifest["url"] = url
+    arch_manifest["hash"] = hashes[asset_name]
+    updated.append((arch, asset_name, hashes[asset_name]))
+
+temp_manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
+print(f"Updated {manifest_path}")
+print(f"  version: {version}")
+for arch, asset_name, asset_hash in updated:
+    print(f"  {arch}: {asset_name} {asset_hash}")
+PY
 
 mv "$TEMP_MANIFEST" "$MANIFEST_PATH"
-
-echo "Updated ${MANIFEST_PATH}"
-echo "  version: ${VERSION}"
-echo "  windows_amd64 hash: ${WIN_HASH}"
