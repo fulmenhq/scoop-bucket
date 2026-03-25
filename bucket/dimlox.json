@@ -1,12 +1,12 @@
 {
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Moving and shaping structured data across the clouds",
   "homepage": "https://github.com/fulmenhq/dimlox",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "architecture": {
     "64bit": {
-      "url": "https://github.com/fulmenhq/dimlox/releases/download/v0.1.1/dimlox-windows-amd64.exe",
-      "hash": "183c1293b6178be0dd240311f39c5a4148476e25b7fbe4c8b0c61f749a71ace1",
+      "url": "https://github.com/fulmenhq/dimlox/releases/download/v0.1.2/dimlox-windows-amd64.exe",
+      "hash": "9de39b889935bb68a6b2e56a106599f0afd4807393e973d984912ae9ddb5b765",
       "bin": [
         [
           "dimlox-windows-amd64.exe",
@@ -15,8 +15,8 @@
       ]
     },
     "arm64": {
-      "url": "https://github.com/fulmenhq/dimlox/releases/download/v0.1.1/dimlox-windows-arm64.exe",
-      "hash": "270ad5c4438f45de6fc43b9433c7b7eb9dc7d612810cbf0240455d9741df269e",
+      "url": "https://github.com/fulmenhq/dimlox/releases/download/v0.1.2/dimlox-windows-arm64.exe",
+      "hash": "4c4741d3a79bc11b4d7dbbbd251ab71f9223058fbcaf612fd9148d6a8a43304c",
       "bin": [
         [
           "dimlox-windows-arm64.exe",
