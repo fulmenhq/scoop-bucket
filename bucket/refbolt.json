@@ -1,12 +1,12 @@
 {
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "CLI for archiving web documentation into date-versioned Markdown trees",
   "homepage": "https://github.com/fulmenhq/refbolt",
   "license": "MIT|Apache-2.0",
   "architecture": {
     "64bit": {
-      "url": "https://github.com/fulmenhq/refbolt/releases/download/v0.0.3/refbolt-windows-amd64.exe",
-      "hash": "68ec62031031bdd555e1a5148634303b32033a095d98c3247250cc03a89dcf12",
+      "url": "https://github.com/fulmenhq/refbolt/releases/download/v0.0.4/refbolt-windows-amd64.exe",
+      "hash": "aecebeb00d0a0dcba47ae3bcfcb5d9662b2f62167d0eab6611f8f35f723feb4a",
       "bin": [
         [
           "refbolt-windows-amd64.exe",
@@ -15,8 +15,8 @@
       ]
     },
     "arm64": {
-      "url": "https://github.com/fulmenhq/refbolt/releases/download/v0.0.3/refbolt-windows-arm64.exe",
-      "hash": "1eb9b4d8f3c4700213c8f9384c062c7e12abcd8ef408a1689f9a6f4fc49eb80e",
+      "url": "https://github.com/fulmenhq/refbolt/releases/download/v0.0.4/refbolt-windows-arm64.exe",
+      "hash": "7c5b12dff558a560573540a14abc07114a37f7065e5d9a1932cf4d9a23def437",
       "bin": [
         [
           "refbolt-windows-arm64.exe",
