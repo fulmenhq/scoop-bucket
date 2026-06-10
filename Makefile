@@ -4,7 +4,13 @@ APP ?= goneat
 VERSION ?=
 SOURCE ?= --github
 
-.PHONY: update update-goneat update-dimlox update-sumpter release
+.PHONY: check update update-goneat update-dimlox update-sumpter release
+
+check:
+	@./scripts/validate-manifests.sh
+	@shellcheck scripts/*.sh
+	@shfmt -d scripts/*.sh
+	@echo "All checks passed"
 
 update:
 	@if [[ -z "$(VERSION)" ]]; then \
