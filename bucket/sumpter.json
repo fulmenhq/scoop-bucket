@@ -1,12 +1,12 @@
 {
-  "version": "0.1.10",
+  "version": "0.2.0",
   "description": "Streaming XML extraction engine for large, variant-heavy inputs",
   "homepage": "https://github.com/fulmenhq/sumpter",
   "license": "Apache-2.0",
   "architecture": {
     "64bit": {
-      "url": "https://github.com/fulmenhq/sumpter/releases/download/v0.1.10/sumpter-windows-amd64.exe",
-      "hash": "f8a50fa851d1ed8278c73a3672e3a699e710cada95caf5bd1ea329a0df8a9813",
+      "url": "https://github.com/fulmenhq/sumpter/releases/download/v0.2.0/sumpter-windows-amd64.exe",
+      "hash": "3c64596424baf7e99e55f49957ed9d8d1f4be3d54bc6d04cc498a3dacca27223",
       "bin": [
         [
           "sumpter-windows-amd64.exe",
@@ -15,8 +15,8 @@
       ]
     },
     "arm64": {
-      "url": "https://github.com/fulmenhq/sumpter/releases/download/v0.1.10/sumpter-windows-arm64.exe",
-      "hash": "8e67195ee95a064ef29ae0b2c144fb66ea2362f297b4930598cd7487ae7977d7",
+      "url": "https://github.com/fulmenhq/sumpter/releases/download/v0.2.0/sumpter-windows-arm64.exe",
+      "hash": "e4aa7fb701f10738b0cbccd68dec396e4f786bbe3af5c4061cf8a3686fbc072f",
       "bin": [
         [
           "sumpter-windows-arm64.exe",
