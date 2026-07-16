@@ -1,0 +1,31 @@
+{
+  "version": "0.2.0",
+  "description": "Confidential Context Leakage (CCL) detector for repos and workflows",
+  "homepage": "https://github.com/fulmenhq/limensafe",
+  "license": "MIT",
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/fulmenhq/limensafe/releases/download/v0.2.0/limensafe-windows-amd64.exe#/limensafe.exe",
+      "hash": "885fe6dc819220d0f7ae9c18aa7b04f1e16749e5eed8c08f01f7dc482bb3ed04",
+      "bin": "limensafe.exe"
+    },
+    "arm64": {
+      "url": "https://github.com/fulmenhq/limensafe/releases/download/v0.2.0/limensafe-windows-arm64.exe#/limensafe.exe",
+      "hash": "6d842a9fab56453887b6367a9a69070ad63e91d493b48b888acda6372906d48f",
+      "bin": "limensafe.exe"
+    }
+  },
+  "checkver": {
+    "github": "https://github.com/fulmenhq/limensafe"
+  },
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://github.com/fulmenhq/limensafe/releases/download/v$version/limensafe-windows-amd64.exe#/limensafe.exe"
+      },
+      "arm64": {
+        "url": "https://github.com/fulmenhq/limensafe/releases/download/v$version/limensafe-windows-arm64.exe#/limensafe.exe"
+      }
+    }
+  }
+}
