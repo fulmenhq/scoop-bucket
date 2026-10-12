@@ -1,12 +1,12 @@
 {
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "One CLI to orchestrate code quality across your polyglot codebase",
   "homepage": "https://github.com/fulmenhq/goneat",
   "license": "Apache-2.0",
   "architecture": {
     "64bit": {
-      "url": "https://github.com/fulmenhq/goneat/releases/download/v0.6.2/goneat_v0.6.2_windows_amd64.zip",
-      "hash": "f653481b26c409c6a08a11b0fd5870597985f4763e770d87de7b8b1f3be37819",
+      "url": "https://github.com/fulmenhq/goneat/releases/download/v0.6.3/goneat_v0.6.3_windows_amd64.zip",
+      "hash": "88698ed50d28b02e042835c8a1e07746b4568f2146bd548feec806b17acb9b42",
       "bin": "goneat.exe"
     }
   },
