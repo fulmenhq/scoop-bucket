@@ -8,6 +8,11 @@
       "url": "https://github.com/fulmenhq/goneat/releases/download/v0.6.3/goneat_v0.6.3_windows_amd64.zip",
       "hash": "88698ed50d28b02e042835c8a1e07746b4568f2146bd548feec806b17acb9b42",
       "bin": "goneat.exe"
+    },
+    "arm64": {
+      "url": "https://github.com/fulmenhq/goneat/releases/download/v0.6.3/goneat_v0.6.3_windows_arm64.zip",
+      "hash": "43a99a2b1bc40ad217ac90d583438fc83f468f0f4cf0dd1f781e4b2bfa171e6c",
+      "bin": "goneat.exe"
     }
   },
   "checkver": {
@@ -17,6 +22,9 @@
     "architecture": {
       "64bit": {
         "url": "https://github.com/fulmenhq/goneat/releases/download/v$version/goneat_v$version_windows_amd64.zip"
+      },
+      "arm64": {
+        "url": "https://github.com/fulmenhq/goneat/releases/download/v$version/goneat_v$version_windows_arm64.zip"
       }
     }
   }
